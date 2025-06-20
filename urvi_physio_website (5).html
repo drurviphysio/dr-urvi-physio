@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr Urvi Jain Home Physiotherapy</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Merriweather:wght@300;700&family=Open+Sans:wght@400;600&display=swap');
+    * {
+      box-sizing: border-box;
+    }
+    body {
+  font-family: 'Nunito', sans-serif;
+  background-color: #f4f7f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+    header {
+      background-color: #e0f7f4;
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+    }
+    header h1 {
+  font-family: 'Merriweather', serif;
+  font-size: 2.5rem;
+  margin: 0;
+  color: #004d40;
+}
+    header p {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0.5rem 0 1rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+    .cta-buttons {
+      margin-top: 1rem;
+    }
+    .cta-buttons a {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.8rem 1.6rem;
+      font-weight: bold;
+      background-color: #25d366;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+    .container {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    h2 {
+  font-family: 'Merriweather', serif;
+  color: #25d366;
+  font-size: 1.8rem;
+  margin-top: 3rem;
+  border-left: 5px solid #25d366;
+  padding-left: 1rem;
+}
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .card {
+      background-color: #ffffff;
+      flex: 1 1 calc(50% - 1rem);
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+    }
+    ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+    footer {
+      background-color: #e0f7f4;
+      text-align: center;
+      padding: 1rem;
+      color: #444;
+    }
+    .sticky-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #25d366;
+      padding: 0.7rem 1rem;
+      display: flex;
+      justify-content: space-around;
+      z-index: 1000;
+    }
+    .sticky-bar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .review {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .review img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+    }
+    .review p {
+      margin: 0;
+    }
+    @media (max-width: 600px) {
+      .card { flex: 1 1 100%; }
+    }
+    .fade-in {
+    animation: fadeIn 1.2s ease-in-out;
+  }
+  .zoom-in {
+    animation: zoomIn 0.8s ease-in-out;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes zoomIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+</style>
+</head>
+<body>
+  <header class="fade-in">
+    <h1>Dr Urvi Jain Home Physiotherapy</h1>
+    <p>By Dr. Urvi Jain – B.P.T., M.P.T., C.D.N.P., C.K.T.P., NDS Therapist</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/918976039943">Book on WhatsApp</a>
+      <a href="tel:+918976039943">Call Now</a>
+    </div>
+  </header>
+
+  <div class="container fade-in">
+    <h2>About Me</h2>
+    <div class="card zoom-in">
+      <p>I’m Dr. Urvi Jain, a qualified physiotherapist offering professional home visit services across Mumbai. I hold a Master’s degree in Community Physiotherapy (Rank 1) from K. J. Somaiya College of Physiotherapy, Mumbai. In addition to my academic credentials, I am certified in advanced therapeutic techniques including Dry Needling, Kinesiology Taping (K-Taping), Neurodynamic Solutions (NDS), and Cupping Therapy. I provide personalized, goal-oriented physiotherapy sessions that help my patients reduce pain, improve mobility, and regain their independence — all from the comfort of their homes.</p>
+    </div>
+    <h2>Services Offered</h2>
+    <div class="cards">
+      <div class="card zoom-in">
+        <h3>Orthopedic & Musculoskeletal Physiotherapy</h3>
+        <p>Conditions: Back pain, neck pain, knee pain, shoulder injuries, post-fracture rehab.</p>
+        <a href="https://wa.me/918976039943">Book Now</a>
+      </div>
+      <div class="card zoom-in">
+        <h3>Neurological Rehabilitation</h3>
+        <p>Conditions: Stroke, paralysis, Parkinson's disease, spinal cord injuries, balance issues.</p>
+        <a href="https://wa.me/918976039943">Book Now</a>
+      </div>
+      <div class="card zoom-in">
+        <h3>Women’s Health Physiotherapy</h3>
+        <p>Care for prenatal, postnatal, menopause, post-hysterectomy, pelvic floor strengthening.</p>
+        <a href="https://wa.me/918976039943">Book Now</a>
+      </div>
+      <div class="card zoom-in">
+        <h3>Geriatric Physiotherapy</h3>
+        <p>Support for elderly patients: fall prevention, arthritis, joint stiffness, and mobility improvement.</p>
+        <a href="https://wa.me/918976039943">Book Now</a>
+      </div>
+    </div>
+      
+      
+      
+    </div>
+
+    <h2>Why Choose Me?</h2>
+    <div class="card zoom-in">
+      <ul>
+        <li>Rank 1 in M.P.T. (Community Physiotherapy) from K. J. Somaiya College of Physiotherapy, Mumbai</li>
+        <li>Trusted by 50+ patients in Mumbai</li>
+        <li>Certified in Dry Needling, K Taping, NDS, and Cupping</li>
+        <li>Personalized, result-oriented home treatment</li>
+      </ul>
+    </div>
+
+    <h2>Session Charges</h2>
+    <div class="card zoom-in">
+      <p><strong>Charges start at ₹799 per session</strong> depending on the treatment required and area. Please contact for a personalized quote.</p>
+    </div>
+
+    <h2>What Patients Say</h2>
+    <div class="card zoom-in">
+      <div class="review">
+  <p><strong>Shweta Tiwari:</strong> "Dr. Urvi is extremely good at her work. She listens carefully and provides effective treatment. Highly recommended!"</p>
+</div>
+      <div class="review">
+  <p><strong>Sneha More:</strong> "Professional and polite. She helped my mother regain mobility post-surgery through regular home visits."</p>
+</div>
+      <div class="review">
+  <p><strong>Mohammed A.:</strong> "I had severe shoulder pain and got relief within just a few sessions. Great physiotherapist!"</p>
+</div>
+      <div class="review">
+  <p><strong>Ritu K.:</strong> "Very knowledgeable and punctual. My experience has been smooth and satisfying."</p>
+</div>
+      <p><a href="https://g.co/kgs/X2qNJxk" style="color:#00c48c;" target="_blank">Read more reviews on Google</a></p>
+    </div>
+  
+<h2>Blog</h2>
+<div class="card zoom-in">
+  <p>Check back soon! This section will feature helpful articles and tips about physiotherapy, recovery, and home care — all written by Dr. Urvi Jain.</p>
+</div>
+
+<div class="sticky-bar">
+  <a href="https://wa.me/918976039943">📲 WhatsApp</a>
+  <a href="tel:+918976039943">📞 Call Now</a>
+</div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Dr Urvi Jain Home Physiotherapy</p>
+  </footer>
+</body>
+</html>
