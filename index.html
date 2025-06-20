@@ -5,225 +5,278 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dr. Urvi Jain | Home Physiotherapy in Mumbai</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Merriweather:wght@300;700&family=Open+Sans:wght@400;600&display=swap');
-    * {
-      box-sizing: border-box;
+    /* CSS Variables: Custom Red Gradient Palette */
+    :root {
+      --primary-color: #E01F2D;    /* rich red */
+      --accent-color: #943C22;     /* deep burnt sienna */
+      --gradient-start: #E01F2D;
+      --gradient-end: #943C22;
+      --light-bg: #f9f1f0;         /* very light blush */
+      --card-bg: #ffffff;          /* crisp white */
+      --text-color: #212121;       /* dark charcoal */
+      --secondary-text: #4a4a4a;   /* medium grey */
+      --border-radius: 12px;
+      --transition-time: 0.4s;
+      --hover-scale: 1.03;
+      --card-shadow: rgba(0, 0, 0, 0.1);
+      --card-shadow-hover: rgba(0, 0, 0, 0.2);
+      --text-white: #ffffff;
+      --shadow-start: rgba(224,31,45,0.6);
+      --shadow-end: rgba(148,60,34,0.6);
     }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-  font-family: 'Nunito', sans-serif;
-  background-color: #f4f7f9;
-  color: #333;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-}
+      font-family: 'Nunito', sans-serif;
+      background: var(--light-bg);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
     header {
-      background-color: #e0f7f4;
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
       text-align: center;
-      padding: 3rem 1rem 2rem;
+      padding: 3rem 1rem 5rem;
+      position: relative;
+      overflow: hidden;
+      animation: fadeIn 1s ease-in-out;
     }
+    /* Decorative background shapes */
+    header::before {
+      content: '';
+      position: absolute;
+      width: 180%; height: 180%;
+      background: radial-gradient(circle at 20% 20%, var(--primary-color), transparent 60%),
+                  radial-gradient(circle at 80% 80%, var(--accent-color), transparent 60%);
+      top: -40%; left: -40%;
+      z-index: 0;
+    }
+    /* Wave at bottom */
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 80px;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,0 C600,120 600,0 1200,120 L1200,120 L0,120 Z' fill='%23ffffff'/%3E%3C/svg%3E");
+      z-index: 0;
+    }
+    header > * { position: relative; z-index: 1; }
+
     header h1 {
-  font-family: 'Merriweather', serif;
-  font-size: 2.5rem;
-  margin: 0;
-  color: #004d40;
-}
-    header p {
-  font-family: 'Open Sans', sans-serif;
-  margin: 0.5rem 0 1rem;
-  font-size: 1.2rem;
-  color: #333;
-}
-    .cta-buttons {
-      margin-top: 1rem;
+      font-family: 'Merriweather', serif;
+      font-size: 2.75rem;
+      color: var(--text-white);
+      text-shadow: 2px 2px 6px var(--shadow-start), -2px -2px 6px var(--shadow-end);
+      margin-bottom: 0.5rem;
     }
+    header p {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1.2rem;
+      color: var(--text-white);
+      text-shadow: 1px 1px 4px var(--shadow-start), -1px -1px 4px var(--shadow-end);
+    }
+
+    .cta-buttons { margin-top: 1.5rem; }
     .cta-buttons a {
       display: inline-block;
       margin: 0.5rem;
       padding: 0.8rem 1.6rem;
-      font-weight: bold;
-      background-color: #25d366;
-      color: white;
-      border-radius: 6px;
+      background: var(--text-white);
+      color: var(--gradient-start);
+      font-weight: 600;
+      border-radius: var(--border-radius);
       text-decoration: none;
+      transition: background var(--transition-time), transform var(--transition-time), color var(--transition-time);
     }
-    .container {
-      max-width: 960px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+    .cta-buttons a:hover {
+      background: var(--gradient-start);
+      color: var(--text-white);
+      transform: scale(1.05);
     }
-    h2 {
-  font-family: 'Merriweather', serif;
-  color: #25d366;
-  font-size: 1.8rem;
-  margin-top: 3rem;
-  border-left: 5px solid #25d366;
-  padding-left: 1rem;
-}
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1rem;
+
+    main { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
+    section { margin-bottom: 3rem; }
+    section h2 {
+      font-family: 'Merriweather', serif;
+      color: var(--gradient-start);
+      font-size: 2rem;
+      border-left: 6px solid var(--gradient-start);
+      padding-left: 1rem;
+      margin-bottom: 1rem;
     }
+
     .card {
-      background-color: #ffffff;
-      flex: 1 1 calc(50% - 1rem);
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
+      background: var(--card-bg);
+      padding: 1.8rem;
+      border-radius: var(--border-radius);
+      box-shadow: 0 8px 16px var(--card-shadow);
+      transition: transform var(--transition-time), box-shadow var(--transition-time);
     }
     .card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-8px) scale(var(--hover-scale));
+      box-shadow: 0 12px 24px var(--card-shadow-hover);
     }
-    ul {
-      margin: 0;
-      padding-left: 1.2rem;
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+    .card h3 {
+      color: var(--gradient-start);
+      margin-bottom: 0.5rem;
+      transition: color var(--transition-time);
     }
-    footer {
-      background-color: #e0f7f4;
-      text-align: center;
-      padding: 1rem;
-      color: #444;
+    .card h3:hover { color: var(--gradient-end); }
+
+    ul { list-style: disc inside; color: var(--secondary-text); }
+
+    .testimonial { margin-top: 1.5rem; }
+    .testimonial blockquote {
+      font-style: italic;
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
     }
+    .testimonial cite {
+      display: block;
+      text-align: right;
+      font-weight: 600;
+      color: var(--gradient-start);
+      margin-top: 0.25rem;
+    }
+
     .sticky-bar {
       position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-color: #25d366;
-      padding: 0.7rem 1rem;
-      display: flex;
-      justify-content: space-around;
+      bottom: 0; left: 0; right: 0;
+      background: var(--gradient-start);
+      display: flex; justify-content: space-around;
+      padding: 0.75rem 1rem;
+      box-shadow: 0 -2px 12px var(--card-shadow-hover);
       z-index: 1000;
+      animation: slideUp 0.8s ease-out;
     }
     .sticky-bar a {
-      color: white;
+      color: var(--text-white);
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      transition: transform var(--transition-time);
     }
-    .review {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
+    .sticky-bar a:hover { transform: scale(1.1); }
+
+    footer {
+      background: var(--gradient-end);
+      text-align: center;
+      padding: 1.2rem;
+      color: var(--text-white);
     }
-    .review img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-    }
-    .review p {
-      margin: 0;
-    }
+
+    /* Animations */
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+
+    /* Responsive */
     @media (max-width: 600px) {
-      .card { flex: 1 1 100%; }
+      header h1 { font-size: 2.2rem; }
+      section h2 { font-size: 1.75rem; }
     }
-    .fade-in {
-    animation: fadeIn 1.2s ease-in-out;
-  }
-  .zoom-in {
-    animation: zoomIn 0.8s ease-in-out;
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes zoomIn {
-    from { transform: scale(0.95); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-  }
-</style>
+  </style>
 </head>
 <body>
-  <header class="fade-in">
-    <h1>Trusted Home Physiotherapy in Mumbai</h1>
-    <p>By Dr. Urvi Jain – B.P.T., M.P.T., C.D.N.P., C.K.T.P., NDS Therapist</p>
+  <header>
+    <h1>Dr. Urvi Jain</h1>
+    <p>
+      <abbr title="Bachelor of Physiotherapy">B.P.T.</abbr>,
+      <abbr title="Master of Physiotherapy">M.P.T.</abbr>,
+      <abbr title="Certified Diabetic Neuropathy Practitioner">C.D.N.P.</abbr>,
+      <abbr title="Certified Kinesiology Taping Practitioner">C.K.T.P.</abbr>,
+      <abbr title="Neurodynamic Solutions Therapist">N.D.S.</abbr>,
+      Cupping Therapy Practitioner
+      <br>
+      Trusted Home Physiotherapy in Mumbai
+    </p>
     <div class="cta-buttons">
-      <a href="https://wa.me/918976039943">Book on WhatsApp</a>
-      <a href="tel:+918976039943">Call Now</a>
+      <a href="https://wa.me/918976039943" aria-label="Book on WhatsApp">Book on WhatsApp</a>
+      <a href="tel:+918976039943" aria-label="Call Now">Call Now</a>
     </div>
   </header>
 
-  <div class="container fade-in">
-    <h2>About Me</h2>
-    <div class="card zoom-in">
-      <p>I’m Dr. Urvi Jain, a qualified physiotherapist offering professional home visit services across Mumbai. I hold a Master’s degree in Community Physiotherapy (Rank 1) from K. J. Somaiya College of Physiotherapy, Mumbai. In addition to my academic credentials, I am certified in advanced therapeutic techniques including Dry Needling, Kinesiology Taping (K-Taping), Neurodynamic Solutions (NDS), and Cupping Therapy. I provide personalized, goal-oriented physiotherapy sessions that help my patients reduce pain, improve mobility, and regain their independence — all from the comfort of their homes.</p>
-    </div>
-    <h2>Services Offered</h2>
-    <div class="cards">
-      <div class="card zoom-in">
-        <h3>Orthopedic & Musculoskeletal Physiotherapy</h3>
-        <p>Conditions: Back pain, neck pain, knee pain, shoulder injuries, post-fracture rehab.</p>
-        <a href="https://wa.me/918976039943">Book Now</a>
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="card">
+        <p>I’m Dr. Urvi Jain, a qualified physiotherapist offering professional home visit services across Mumbai. I hold a Master’s degree in Community Physiotherapy (Rank 1) from K. J. Somaiya College of Physiotherapy, Mumbai. In addition to my academic credentials, I am certified in advanced therapeutic techniques including Dry Needling, Kinesiology Taping (K-Taping), Neurodynamic Solutions (NDS), and Cupping Therapy. I provide personalized, goal-oriented physiotherapy sessions that help my patients reduce pain, improve mobility, and regain their independence — all from the comfort of their homes.
+
+</p>
       </div>
-      <div class="card zoom-in">
-        <h3>Neurological Rehabilitation</h3>
-        <p>Conditions: Stroke, paralysis, Parkinson's disease, spinal cord injuries, balance issues.</p>
-        <a href="https://wa.me/918976039943">Book Now</a>
+    </section>
+
+    <section id="services">
+      <h2>Services Offered</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Orthopedic & Musculoskeletal</h3>
+          <p>Conditions: Back pain, neck pain, knee pain, shoulder injuries, post-fracture rehab.</p>
+          <a href="https://wa.me/918976039943">Book Now</a>
+        </div>
+        <div class="card">
+          <h3>Neurological Rehabilitation</h3>
+          <p>Conditions: Stroke, paralysis, Parkinson's, spinal injuries, balance issues.</p>
+          <a href="https://wa.me/918976039943">Book Now</a>
+        </div>
+        <div class="card">
+          <h3>Women’s Health</h3>
+          <p>Care for prenatal, postnatal, menopause, post-hysterectomy, pelvic floor strengthening.</p>
+          <a href="https://wa.me/918976039943">Book Now</a>
+        </div>
+        <div class="card">
+          <h3>Geriatric Physiotherapy</h3>
+          <p>Support: fall prevention, arthritis management, joint stiffness, mobility improvement.</p>
+          <a href="https://wa.me/918976039943">Book Now</a>
+        </div>
       </div>
-      <div class="card zoom-in">
-        <h3>Women’s Health Physiotherapy</h3>
-        <p>Care for prenatal, postnatal, menopause, post-hysterectomy, pelvic floor strengthening.</p>
-        <a href="https://wa.me/918976039943">Book Now</a>
+    </section>
+
+    <section id="why-choose">
+      <h2>Why Choose Me?</h2>
+      <div class="card">
+        <ul>
+          <li>Rank 1 in M.P.T. (Community Physiotherapy), K. J. Somaiya College</li>
+          <li>Trusted by 50+ patients in Mumbai</li>
+          <li>Certified in Dry Needling, K-Taping, NDS, Cupping</li>
+          <li>Personalized, result-oriented home treatment</li>
+        </ul>
       </div>
-      <div class="card zoom-in">
-        <h3>Geriatric Physiotherapy</h3>
-        <p>Support for elderly patients: fall prevention, arthritis, joint stiffness, and mobility improvement.</p>
-        <a href="https://wa.me/918976039943">Book Now</a>
+    </section>
+
+    <section id="fees">
+      <h2>Session Charges</h2>
+      <div class="card">
+        <p><strong>Starting at ₹799/session.</strong> Prices may vary based on treatment and location. Contact for a personalized quote.</p>
       </div>
-    </div>
-      
-      
-      
-    </div>
+    </section>
 
-    <h2>Why Choose Me?</h2>
-    <div class="card zoom-in">
-      <ul>
-        <li>Rank 1 in M.P.T. (Community Physiotherapy) from K. J. Somaiya College of Physiotherapy, Mumbai</li>
-        <li>Trusted by 50+ patients in Mumbai</li>
-        <li>Certified in Dry Needling, K Taping, NDS, and Cupping</li>
-        <li>Personalized, result-oriented home treatment</li>
-      </ul>
-    </div>
+    <section id="testimonials">
+      <h2>What Patients Say</h2>
+      <div class="testimonial card">
+        <blockquote>“The physiotherapy sessions were incredibly effective in relieving my tailbone pain. Dr. Urvi was very kind, patient, attentive, and tailored the treatment perfectly. I felt noticeable improvement with each session – highly recommended!”</blockquote>
+        <cite>Sarika Bhosale</cite>
+      </div>
+      <div class="testimonial card">
+        <blockquote>“Dr. Urvi Jain is the best physiotherapist in Mumbai. I recommend all to consult once if you are suffering from any musculoskeletal pain.”</blockquote>
+        <cite>Anuj Unhale</cite>
+      </div>
+      <div class="testimonial card">
+        <blockquote>“I’m constantly on my feet & sometimes lift heavy weights. This put a real strain on my heels. I reached out to Dr. Urvi Jain for help, and I’m so glad I did!”</blockquote>
+        <cite>Jalak Upadhyay</cite>
+      </div>
+      <div class="testimonial card">
+        <blockquote>“Dr. Urvi is nice, takes care of us well, and always checks how we are feeling. I’m happy with the treatment!”</blockquote>
+        <cite>Sejal Kothari</cite>
+      </div>
+      <p style="text-align:center; margin-top:1rem;">
+        <a href="https://g.co/kgs/X2qNJxk" target="_blank">Read more reviews on Google</a>
+      </p>
+    </section>
 
-    <h2>Session Charges</h2>
-    <div class="card zoom-in">
-      <p><strong>Charges start at ₹799 per session</strong> depending on the treatment required and area. Please contact for a personalized quote.</p>
-    </div>
-
-    <h2>What Patients Say</h2>
-    <div class="card zoom-in">
-      <div class="review">
-  <p><strong>Shweta Tiwari:</strong> "Dr. Urvi is extremely good at her work. She listens carefully and provides effective treatment. Highly recommended!"</p>
-</div>
-      <div class="review">
-  <p><strong>Sneha More:</strong> "Professional and polite. She helped my mother regain mobility post-surgery through regular home visits."</p>
-</div>
-      <div class="review">
-  <p><strong>Mohammed A.:</strong> "I had severe shoulder pain and got relief within just a few sessions. Great physiotherapist!"</p>
-</div>
-      <div class="review">
-  <p><strong>Ritu K.:</strong> "Very knowledgeable and punctual. My experience has been smooth and satisfying."</p>
-</div>
-      <p><a href="https://g.co/kgs/X2qNJxk" style="color:#00c48c;" target="_blank">Read more reviews on Google</a></p>
-    </div>
-  
-<h2>Blog</h2>
-<div class="card zoom-in">
-  <p>Check back soon! This section will feature helpful articles and tips about physiotherapy, recovery, and home care — all written by Dr. Urvi Jain.</p>
-</div>
-
-<div class="sticky-bar">
-  <a href="https://wa.me/918976039943">📲 WhatsApp</a>
-  <a href="tel:+918976039943">📞 Call Now</a>
-</div>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 Dr. Urvi Jain | Home Physiotherapy in Mumbai</p>
-  </footer>
-</body>
-</html>
+    <section id="blog">
+      <h2>Blog</h2>
+      <div class="card">
+        <p>Coming soon: Articles on physiotherapy, recovery tips, and home care by Dr. Urvi Jain.</p>
+      </div>
+    </section>
